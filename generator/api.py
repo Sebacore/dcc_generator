@@ -9,5 +9,3 @@ class CharacterViewSet(viewsets.ModelViewSet):
     queryset = models.Character.objects.all()
     serializer_class = serializers.CharacterSerializer
     permission_classes = [permissions.IsAuthenticated]
-
-

@@ -41,18 +41,14 @@ class Character(models.Model):
     action_dice = models.TextField(max_length=100)
     lucky_sign = models.TextField(max_length=100)
 
-
     class Meta:
-        ordering = ('-created',)
+        ordering = ('-created', )
 
     def __unicode__(self):
         return u'%s' % self.slug
 
     def get_absolute_url(self):
-        return reverse('generator_character_detail', args=(self.slug,))
-
+        return reverse('generator_character_detail', args=(self.slug, ))
 
     def get_update_url(self):
-        return reverse('generator_character_update', args=(self.slug,))
-
-
+        return reverse('generator_character_update', args=(self.slug, ))
