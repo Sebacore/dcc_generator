@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'generator_character_list' %}">Character Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>level</td><td>{{ object.level }}</td></tr>
+<tr><td>occupation</td><td>{{ object.occupation }}</td></tr>
+<tr><td>class_name</td><td>{{ object.class_name }}</td></tr>
+<tr><td>alignment</td><td>{{ object.alignment }}</td></tr>
+<tr><td>speed</td><td>{{ object.speed }}</td></tr>
+<tr><td>initiative</td><td>{{ object.initiative }}</td></tr>
+<tr><td>armor_class</td><td>{{ object.armor_class }}</td></tr>
+<tr><td>max_hp</td><td>{{ object.max_hp }}</td></tr>
+<tr><td>current_hp</td><td>{{ object.current_hp }}</td></tr>
+<tr><td>STR</td><td>{{ object.STR }}</td></tr>
+<tr><td>AGL</td><td>{{ object.AGL }}</td></tr>
+<tr><td>STA</td><td>{{ object.STA }}</td></tr>
+<tr><td>PER</td><td>{{ object.PER }}</td></tr>
+<tr><td>INT</td><td>{{ object.INT }}</td></tr>
+<tr><td>LCK</td><td>{{ object.LCK }}</td></tr>
+<tr><td>save_reflex</td><td>{{ object.save_reflex }}</td></tr>
+<tr><td>save_foritude</td><td>{{ object.save_foritude }}</td></tr>
+<tr><td>save_will</td><td>{{ object.save_will }}</td></tr>
+<tr><td>attack_mod</td><td>{{ object.attack_mod }}</td></tr>
+<tr><td>crit_table</td><td>{{ object.crit_table }}</td></tr>
+<tr><td>crit_dice</td><td>{{ object.crit_dice }}</td></tr>
+<tr><td>action_dice</td><td>{{ object.action_dice }}</td></tr>
+<tr><td>lucky_sign</td><td>{{ object.lucky_sign }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Character</a>
+
+{% endblock %}

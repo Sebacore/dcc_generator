@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'generator_character_list' %}">Character Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>slug</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>level</td>
+    <td>occupation</td>
+    <td>class_name</td>
+    <td>alignment</td>
+    <td>speed</td>
+    <td>initiative</td>
+    <td>armor_class</td>
+    <td>max_hp</td>
+    <td>current_hp</td>
+    <td>STR</td>
+    <td>AGL</td>
+    <td>STA</td>
+    <td>PER</td>
+    <td>INT</td>
+    <td>LCK</td>
+    <td>save_reflex</td>
+    <td>save_foritude</td>
+    <td>save_will</td>
+    <td>attack_mod</td>
+    <td>crit_table</td>
+    <td>crit_dice</td>
+    <td>action_dice</td>
+    <td>lucky_sign</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.id}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.slug }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.level }}</td>
+    <td>{{ object.occupation }}</td>
+    <td>{{ object.class_name }}</td>
+    <td>{{ object.alignment }}</td>
+    <td>{{ object.speed }}</td>
+    <td>{{ object.initiative }}</td>
+    <td>{{ object.armor_class }}</td>
+    <td>{{ object.max_hp }}</td>
+    <td>{{ object.current_hp }}</td>
+    <td>{{ object.STR }}</td>
+    <td>{{ object.AGL }}</td>
+    <td>{{ object.STA }}</td>
+    <td>{{ object.PER }}</td>
+    <td>{{ object.INT }}</td>
+    <td>{{ object.LCK }}</td>
+    <td>{{ object.save_reflex }}</td>
+    <td>{{ object.save_foritude }}</td>
+    <td>{{ object.save_will }}</td>
+    <td>{{ object.attack_mod }}</td>
+    <td>{{ object.crit_table }}</td>
+    <td>{{ object.crit_dice }}</td>
+    <td>{{ object.action_dice }}</td>
+    <td>{{ object.lucky_sign }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'generator_character_create' %}">Create new Character</a>
+{% endblock %}

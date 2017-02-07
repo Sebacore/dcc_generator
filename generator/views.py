@@ -1,13 +1,22 @@
-from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView, ListView, UpdateView, CreateView
 from .models import Character
+from .forms import CharacterForm
 
 
-def index(request):
-    character_list = Character.objects.order_by('name')
-    context = {'character_list': character_list, }
-    return render(request, 'generator/index.html', context)
+class CharacterListView(ListView):
+    model = Character
 
 
-def detail(request, character_name):
-    character = get_object_or_404(Character, name=character_name)
-    return render(request, 'generator/details.html', {'character': character})
+class CharacterCreateView(CreateView):
+    model = Character
+    form_class = CharacterForm
+
+
+class CharacterDetailView(DetailView):
+    model = Character
+
+
+class CharacterUpdateView(UpdateView):
+    model = Character
+    form_class = CharacterForm
+
