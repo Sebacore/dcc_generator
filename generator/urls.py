@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework import routers
-import api
-import views
+from . import api
+from . import views
 
 router = routers.DefaultRouter()
 router.register(r'character', api.CharacterViewSet)
@@ -11,6 +11,7 @@ urlpatterns = (
     url(r'^api/v1/', include(router.urls)), )
 
 urlpatterns += (
+    url(r'^$', views.index, name='index'),
     # urls for Character
     url(r'^generator/character/$',
         views.CharacterListView.as_view(),
